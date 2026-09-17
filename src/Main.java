@@ -10,10 +10,10 @@ public class Main {
             }
             switch (opcaoMenu) {
                 case 0:
-                    Biblioteca.listarUsuarios();
+                    Usuarios.listarUsuarios(Biblioteca.getUsuario());
                     break;
                 case 1:
-                    Biblioteca.listarLivros();
+                    Livros.listaLivros(Biblioteca.getLivro());
                     break;
                 case 2:
                     Biblioteca.cadastrarLivro();
@@ -22,14 +22,15 @@ public class Main {
                     Biblioteca.registrarAluguel();
                     break;
                 case 4:
-                    Biblioteca.devolverLivro();
+                    Usuarios.devolverLivro();
                     break;
             }
         } while (opcaoMenu != 5);
     }
 
     public static int mostrarmenu() {
+        ImageIcon logo = new ImageIcon(Biblioteca.class.getResource("/Imagens/livro.png"));
         String[] opcoes = {"Lista de usuários", "Lista de livros", "Registrar livro", "Registrar aluguel", "Devolver livro", "Sair"};
-        return JOptionPane.showOptionDialog(null, "Bem-vindo ao Sistema da Biblioteca!\n\nO que você deseja fazer?", "Sistema da Biblioteca", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, opcoes, opcoes[0]);
+        return JOptionPane.showOptionDialog(null, "Bem-vindo ao Sistema da Biblioteca!\nO que você deseja fazer?", "Biblioteca", JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, logo, opcoes, opcoes[0]);
     }
 }
